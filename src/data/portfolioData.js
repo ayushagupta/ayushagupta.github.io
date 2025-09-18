@@ -47,33 +47,35 @@ export const portfolioData = {
   experience: [
     {
       title: "Graduate Researcher",
-      company: "LASS Lab, UMass Amherst",
-      year: "Sep 2023 - Present",
-      description: "Developing a distributed system for real-time anomaly detection in cloud-native applications using eBPF and machine learning.",
-      technologies: ["Go", "eBPF", "Kubernetes", "Prometheus", "Grafana", "Python", "PyTorch"],
+      company: "Laboratory for Advanced System Software (LASS)",
+      year: "July 2025 - Present",
+      location: "University of Massachusetts Amherst",
+      description: "Implemented a pipeline to partition a pretrained neural network into multiple segments and apply quantization for efficient execution on TPUs. Benchmarked model inference performance by comparing quantized TPU execution with unquantized CPU runs on the ImageNet dataset.",
+      technologies: ["Python", "TensorFlow", "TPU", "Neural Networks", "Quantization"],
       logo: "/data/experience/lass/images/lass.jpg"
     },
     {
-      title: "Software Engineer",
+      title: "Software Engineer - 2",
       company: "Honeywell",
-      year: "Jul 2022 - Jul 2023",
-      description: "Designed and implemented a scalable microservices architecture for an industrial IoT platform, improving data processing efficiency by 30%.",
-      technologies: ["Java", "Spring Boot", "Kafka", "PostgreSQL", "AWS", "Docker", "Kubernetes"],
+      year: "July 2022 - August 2024",
+      location: "Bengaluru, Karnataka, India",
+      description: "Engineered a role-based user management system with .NET & Entity Framework, supporting 1,000+ concurrent users. Built a serverless, event-driven email notification platform using Azure Functions, PostgreSQL triggers, and SendGrid, reducing latency by 25%.",
+      technologies: [".NET", "Entity Framework", "Azure Functions", "PostgreSQL", "SendGrid", "FastAPI", "Databricks", "Redis"],
       logo: "/data/experience/software-engineer-honeywell/images/honeywell.jpg"
     },
     {
       title: "Software Engineering Intern",
       company: "Honeywell",
       year: "May 2021 - Jul 2022",
-      description: "Developed a real-time data ingestion pipeline using Apache Kafka and Spark, processing over 1TB of sensor data daily.",
-      technologies: ["Python", "Spark", "Kafka", "Azure", "SQL"],
+      description: "Developed software solutions and gained experience in enterprise software development.",
+      technologies: ["C#", "Azure", "SQL", "Bamboo", "Jira"],
       logo: "/data/experience/software-intern-honeywell/images/honeywell.jpg"
     },
     {
       title: "Research Intern",
       company: "Swarm Robotics Lab, IIT Kharagpur",
       year: "May 2020 - Aug 2020",
-      description: "Implemented a distributed consensus algorithm for swarm robots, achieving 95% fault tolerance in simulated environments.",
+      description: "Conducted research in swarm robotics and distributed systems.",
       technologies: ["C++", "ROS", "Gazebo", "Python"],
       logo: "/data/experience/swarm-robotics/images/swarm.png"
     }
@@ -82,15 +84,14 @@ export const portfolioData = {
   projects: [
     {
       title: "Distributed Stock Trading Platform",
-      description: "A high-frequency stock trading platform with real-time data processing, order matching, and portfolio management.",
+      description: "A distributed stock trading platform in Flask with a leader-based order service that recovers from crashes and keeps data consistent. The frontend uses a thread-safe cache to make stock lookups fast and reliable across multiple replicas.",
       features: [
-        "Real-time market data streaming",
-        "Low-latency order execution",
-        "Scalable microservices architecture",
-        "User portfolio management",
-        "Historical data analysis"
+        "Leader-based distributed order service with replication, crash recovery, and log synchronization.",
+        "Frontend proxy with thread-safe LRU cache and server-push invalidation for low-latency stock lookups.",
+        "Centralized catalog service with CSV persistence and safe concurrent access.",
+        "RESTful APIs supporting buy/sell orders and order queries with consistent replication."
       ],
-      technologies: ["Go", "Kafka", "gRPC", "PostgreSQL", "React", "Docker", "Kubernetes"],
+      technologies: ["Python", "Flask", "Docker", "AWS"],
       github: "https://github.com/ayushagupta/distributed-stock-trading",
       live: "https://ayushagupta.github.io/distributed-stock-trading",
       images: [
@@ -98,33 +99,31 @@ export const portfolioData = {
       ]
     },
     {
-      title: "Knowledge Graph RAG System",
-      description: "A Retrieval-Augmented Generation (RAG) system leveraging knowledge graphs for enhanced context and accuracy in LLM responses.",
+      title: "Knowledge Graph RAG for Biomedical QA",
+      description: "A biomedical QA system where user queries are matched to known biomedical terms, and the relevant part of the SPOKE knowledge graph is extracted and pruned. This subgraph is turned into natural language and fed to an LLM, which gives accurate, context-aware answers.",
       features: [
-        "Knowledge graph construction from unstructured text",
-        "Graph-based retrieval for relevant context",
-        "LLM integration for natural language generation",
-        "Scalable data ingestion pipeline",
-        "Interactive UI for querying"
+        "Uses vector embeddings to identify biomedical entities in user queries.",
+        "Extracts and prunes subgraphs from the SPOKE knowledge graph for relevant context.",
+        "Converts subgraphs into natural language for LLM consumption.",
+        "Provides context-aware answers to biomedical questions using LLMs."
       ],
-      technologies: ["Python", "Neo4j", "LangChain", "OpenAI API", "FastAPI", "React"],
-      github: "https://github.com/ayushagupta/kg-rag",
+      technologies: ["Python", "OpenAI", "Chroma", "LangChain"],
+      github: "https://github.com/ayushagupta/KG-based-RAG-for-Question-Answering",
       live: "https://ayushagupta.github.io/kg-rag",
       images: [
         "/data/projects/kg-rag/images/kgrag.png"
       ]
     },
     {
-      title: "Speech-to-Summary AI",
-      description: "An AI-powered application that transcribes audio and generates concise summaries using advanced NLP models.",
+      title: "Speech-to-Summary Application",
+      description: "A full-stack application that records your voice, transcribes it in real time using the Web Speech API, and streams a summary using an LLM running locally though Ollama.",
       features: [
-        "Accurate speech-to-text transcription",
-        "Abstractive and extractive summarization",
-        "Support for multiple audio formats",
-        "User-friendly web interface",
-        "API for integration"
+        "Real-time voice transcription in browser using Web Speech API.",
+        "Streaming summaries from locally hosted Llama 3.2 model via Ollama.",
+        "Few-shot prompting for context-aware summaries.",
+        "Dockerized full-stack deployment for easy setup."
       ],
-      technologies: ["Python", "Flask", "Whisper API", "Hugging Face Transformers", "React"],
+      technologies: ["Python", "FastAPI", "React", "Ollama", "Docker"],
       github: "https://github.com/ayushagupta/speech-to-summary",
       live: "https://ayushagupta.github.io/speech-to-summary",
       images: [
@@ -136,16 +135,7 @@ export const portfolioData = {
   blogs: {
     title: "Blog",
     subtitle: "Thoughts and Insights",
-    posts: [
-      {
-        title: "Building Scalable React Applications",
-        slug: "building-scalable-react",
-        date: "2024-01-15",
-        category: "Software Engineering",
-        excerpt: "Learn how to build React applications that can scale with your team and user base.",
-        featured: true
-      }
-    ],
+    posts: [],
     ctaText: "Want to Read More?",
     ctaDescription: "I regularly write about software development, technology trends, and my learning journey.",
     ctaButtonText: "View All Posts",
