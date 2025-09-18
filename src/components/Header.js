@@ -87,9 +87,11 @@ const Header = () => {
   const handleNavigation = (sectionId) => {
     // Close mobile menu when navigating
     setIsMobileMenuOpen(false);
+    // Immediately reflect the intended active section in the header
+    setActiveSection(sectionId);
     
     // If we're on the home page, scroll to section
-    if (location.pathname === '/') {
+    if (location.pathname === '/' || location.hash.startsWith('#/')) {
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
