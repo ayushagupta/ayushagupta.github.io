@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/" />
+    <script>
+      // Single Page Apps for GitHub Pages (fallback)
+      // Redirects 404 requests to index.html preserving the path in sessionStorage
+      (function() {
+        var l = window.location;
+        var redirect = '/?p=' + encodeURIComponent(l.pathname + l.search + l.hash);
+        if (l.pathname !== '/' && !l.pathname.startsWith('/index.html')) {
+          window.location.replace(redirect);
+        }
+      })();
+    </script>
+  </head>
+  <body></body>
+  </html>
+
+

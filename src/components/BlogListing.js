@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './BlogListing.css';
 import { loadBlogsData } from '../utils/portfolioData.js';
 
@@ -90,12 +90,12 @@ const BlogListing = () => {
         {sortedBlogs.map((blog, index) => (
           <article key={index} className="blog-listing-item">
             <h2 className="blog-listing-title">
-              <a 
-                href={`/blog/${blog.slug}`}
+              <Link 
+                to={`/blog/${blog.slug}`}
                 className="blog-listing-title-link"
               >
                 {blog.title}
-              </a>
+              </Link>
             </h2>
             <div className="blog-listing-meta">
               <span className="blog-listing-category">{blog.category}</span>

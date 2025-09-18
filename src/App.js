@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
@@ -17,7 +17,7 @@ function App() {
   return (
     <HelmetProvider>
       <ThemeProvider>
-        <Router basename="/">
+        <Router>
           <div className="App">
             <Header />
             <Routes>
