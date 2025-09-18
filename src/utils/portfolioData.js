@@ -16,7 +16,6 @@ export const loadPortfolioData = async () => {
  * @returns {Promise<Object>} Intro data
  */
 export const loadIntroData = async () => {
-  console.log('loadIntroData called, returning:', portfolioData.intro);
   return portfolioData.intro;
 };
 

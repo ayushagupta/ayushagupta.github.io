@@ -11,7 +11,6 @@ import Blogs from './components/Blogs';
 import Contact from './components/Contact';
 import BlogListing from './components/BlogListing';
 import BlogPost from './components/BlogPost';
-import TestComponent from './components/TestComponent';
 import './App.css';
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
             <Routes>
               <Route path="/" element={
                 <>
-                  <TestComponent />
                   <Intro />
                   <Education />
                   <Experience />

@@ -8,9 +8,7 @@ const Intro = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        console.log('Loading intro data...');
         const data = await loadIntroData();
-        console.log('Loaded intro data:', data);
         setIntroData(data);
       } catch (error) {
         console.error('Error loading intro data:', error);
