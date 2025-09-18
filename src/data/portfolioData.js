@@ -48,34 +48,50 @@ export const portfolioData = {
     {
       title: "Graduate Researcher",
       company: "Laboratory for Advanced System Software (LASS)",
-      year: "July 2025 - Present",
+      period: "July 2025 - Present",
       location: "University of Massachusetts Amherst",
-      description: "Implemented a pipeline to partition a pretrained neural network into multiple segments and apply quantization for efficient execution on TPUs. Benchmarked model inference performance by comparing quantized TPU execution with unquantized CPU runs on the ImageNet dataset.",
+      achievements: [
+        "Implemented a pipeline to partition a pretrained neural network into multiple segments and apply quantization for efficient execution on TPUs.",
+        "Benchmarked model inference performance by comparing quantized TPU execution with unquantized CPU runs on the ImageNet dataset."
+      ],
       technologies: ["Python", "TensorFlow", "TPU", "Neural Networks", "Quantization"],
       logo: "/data/experience/lass/images/lass.jpg"
     },
     {
       title: "Software Engineer - 2",
       company: "Honeywell",
-      year: "July 2022 - August 2024",
+      period: "July 2022 - August 2024",
       location: "Bengaluru, Karnataka, India",
-      description: "Engineered a role-based user management system with .NET & Entity Framework, supporting 1,000+ concurrent users. Built a serverless, event-driven email notification platform using Azure Functions, PostgreSQL triggers, and SendGrid, reducing latency by 25%.",
+      achievements: [
+        "Engineered a role-based user management system with .NET & Entity Framework, supporting 1,000+ concurrent users by designing a scalable database and implementing RESTful APIs for user provisioning and role management.",
+        "Built a serverless, event-driven email notification platform using Azure Functions, PostgreSQL triggers, and SendGrid, reducing latency by 25% with batch processing and retry logic.",
+        "Designed a secure, cardless building access system using a C# backend that integrated mobile app authentication with HID APIs, and automated per-tenant deployment using Azure Logic Apps.",
+        "Developed an async FastAPI platform to trigger Databricks jobs and periodically cache job status using Redis.",
+        "Resolved 50+ security and code quality issues in legacy codebases using Coverity and BlackDuck, increased SonarQube unit test coverage to 95% with NUnit and validated API performance using JMeter.",
+        "Enhanced CI/CD pipelines using Bamboo for automation, Octopus for deployments, & Jira for sprint tracking."
+      ],
       technologies: [".NET", "Entity Framework", "Azure Functions", "PostgreSQL", "SendGrid", "FastAPI", "Databricks", "Redis"],
       logo: "/data/experience/software-engineer-honeywell/images/honeywell.jpg"
     },
     {
       title: "Software Engineering Intern",
       company: "Honeywell",
-      year: "May 2021 - Jul 2022",
-      description: "Developed software solutions and gained experience in enterprise software development.",
+      period: "May 2021 - Jul 2022",
+      achievements: [
+        "Developed software solutions and gained experience in enterprise software development.",
+        "Worked on various projects using C#, Azure, and SQL technologies."
+      ],
       technologies: ["C#", "Azure", "SQL", "Bamboo", "Jira"],
       logo: "/data/experience/software-intern-honeywell/images/honeywell.jpg"
     },
     {
       title: "Research Intern",
       company: "Swarm Robotics Lab, IIT Kharagpur",
-      year: "May 2020 - Aug 2020",
-      description: "Conducted research in swarm robotics and distributed systems.",
+      period: "May 2020 - Aug 2020",
+      achievements: [
+        "Conducted research in swarm robotics and distributed systems.",
+        "Worked with C++, ROS, Gazebo, and Python for robotics applications."
+      ],
       technologies: ["C++", "ROS", "Gazebo", "Python"],
       logo: "/data/experience/swarm-robotics/images/swarm.png"
     }
