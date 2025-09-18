@@ -3,13 +3,13 @@
   <head>
     <meta http-equiv="refresh" content="0; url=/" />
     <script>
-      // Single Page Apps for GitHub Pages (fallback)
-      // Redirects 404 requests to index.html preserving the path in sessionStorage
+      // Redirect 404s to the HashRouter path so deep links work on GitHub Pages
       (function() {
         var l = window.location;
-        var redirect = '/?p=' + encodeURIComponent(l.pathname + l.search + l.hash);
+        var path = l.pathname + (l.search || '') + (l.hash || '');
         if (l.pathname !== '/' && !l.pathname.startsWith('/index.html')) {
-          window.location.replace(redirect);
+          var hashUrl = '/#' + path.replace(/^\//, '');
+          window.location.replace(hashUrl);
         }
       })();
     </script>
