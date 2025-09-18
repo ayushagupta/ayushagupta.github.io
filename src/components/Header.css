@@ -44,6 +44,7 @@
   padding: 1rem 0;
   width: 100%;
   gap: 6rem;
+  position: relative;
 }
 
 .logo-text {
@@ -286,6 +287,7 @@
   cursor: pointer;
   padding: 0;
   z-index: 1001;
+  position: relative;
 }
 
 .mobile-menu-btn span {
@@ -295,6 +297,7 @@
   border-radius: 2px;
   transition: all 0.3s ease;
   transform-origin: center;
+  pointer-events: none;
 }
 
 [data-theme="dark"] .mobile-menu-btn span {
@@ -446,6 +449,11 @@
   
   .mobile-menu-btn {
     display: flex;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 7px;
+    justify-content: center;
+    align-items: center;
   }
   
   .mobile-menu {
