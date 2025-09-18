@@ -53,10 +53,10 @@ export const loadExperienceData = async () => {
  * @returns {Promise<Array>} Projects data array
  */
 export const loadProjectsData = async () => {
-  const ecommerceData = await loadMarkdownFile('/data/projects/ecommerce-platform/index.md');
-  const taskManagerData = await loadMarkdownFile('/data/projects/task-manager/index.md');
-  const weatherData = await loadMarkdownFile('/data/projects/weather-dashboard/index.md');
-  return [ecommerceData, taskManagerData, weatherData].filter(Boolean);
+  const distributedStockTradingData = await loadMarkdownFile('/data/projects/distributed-stock-trading/index.md');
+  const kgRagData = await loadMarkdownFile('/data/projects/kg-rag/index.md');
+  const speechToSummaryData = await loadMarkdownFile('/data/projects/speech-to-summary/index.md');
+  return [distributedStockTradingData, kgRagData, speechToSummaryData].filter(Boolean);
 };
 
 /**
