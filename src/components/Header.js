@@ -5,6 +5,7 @@ import './Header.css';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isDarkMode, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
@@ -18,6 +19,28 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMobileMenuOpen && !event.target.closest('.mobile-menu') && !event.target.closest('.mobile-menu-btn')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('click', handleClickOutside);
+      // Prevent body scroll when mobile menu is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
 
   // Scrollspy: stable highlight based on a reference line below the header
   useEffect(() => {
@@ -62,6 +85,9 @@ const Header = () => {
   }, []);
 
   const handleNavigation = (sectionId) => {
+    // Close mobile menu when navigating
+    setIsMobileMenuOpen(false);
+    
     // If we're on the home page, scroll to section
     if (location.pathname === '/') {
       const element = document.getElementById(sectionId);
@@ -79,6 +105,10 @@ const Header = () => {
         }
       }, 100);
     }
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -116,6 +146,47 @@ const Header = () => {
               </button>
             </div>
           </nav>
+          
+          {/* Mobile Menu Button */}
+          <button 
+            className={`mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`}
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          
+          {/* Mobile Menu */}
+          <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+            <ul className="mobile-nav-list">
+              <li><button onClick={() => handleNavigation('intro')} className={`mobile-nav-link ${activeSection==='intro' ? 'active' : ''}`}>Home</button></li>
+              <li><button onClick={() => handleNavigation('education')} className={`mobile-nav-link ${activeSection==='education' ? 'active' : ''}`}>Education</button></li>
+              <li><button onClick={() => handleNavigation('experience')} className={`mobile-nav-link ${activeSection==='experience' ? 'active' : ''}`}>Experience</button></li>
+              <li><button onClick={() => handleNavigation('projects')} className={`mobile-nav-link ${activeSection==='projects' ? 'active' : ''}`}>Projects</button></li>
+              <li><button onClick={() => handleNavigation('blogs')} className={`mobile-nav-link ${activeSection==='blogs' ? 'active' : ''}`}>Blogs</button></li>
+              <li><button onClick={() => handleNavigation('contact')} className={`mobile-nav-link ${activeSection==='contact' ? 'active' : ''}`}>Contact</button></li>
+            </ul>
+            <div className="mobile-header-actions">
+              <a 
+                href="https://drive.google.com/file/d/your-resume-file-id/view" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="mobile-resume-btn"
+              >
+                <span>📄</span>
+                Resume
+              </a>
+              <button onClick={toggleTheme} className="mobile-theme-toggle" aria-label="Toggle theme">
+                <div className="theme-slider">
+                  <div className={`theme-slider-thumb ${isDarkMode ? 'dark' : 'light'}`}>
+                    {isDarkMode ? '🌙' : '☀️'}
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </header>
