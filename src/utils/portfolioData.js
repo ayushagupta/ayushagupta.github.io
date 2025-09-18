@@ -1,14 +1,21 @@
 // Portfolio data management utilities
-import { loadComponentData, getImagePath } from './dataLoader.js';
-import { portfolioData } from '../data/portfolioData.js';
+import { loadMarkdownFile } from './dataLoader.js';
 
 /**
  * Load all portfolio data
  * @returns {Promise<Object>} Complete portfolio data
  */
 export const loadPortfolioData = async () => {
-  // Return embedded data to avoid 404 errors
-  return portfolioData;
+  const [intro, education, experience, projects, blogs, contact] = await Promise.all([
+    loadIntroData(),
+    loadEducationData(),
+    loadExperienceData(),
+    loadProjectsData(),
+    loadBlogsData(),
+    loadContactData()
+  ]);
+  
+  return { intro, education, experience, projects, blogs, contact };
 };
 
 /**
@@ -16,7 +23,7 @@ export const loadPortfolioData = async () => {
  * @returns {Promise<Object>} Intro data
  */
 export const loadIntroData = async () => {
-  return portfolioData.intro;
+  return await loadMarkdownFile('/data/intro/index.md');
 };
 
 /**
@@ -24,7 +31,9 @@ export const loadIntroData = async () => {
  * @returns {Promise<Array>} Education data array
  */
 export const loadEducationData = async () => {
-  return portfolioData.education;
+  const msData = await loadMarkdownFile('/data/education/ms-computer-science/index.md');
+  const btechData = await loadMarkdownFile('/data/education/btech-electrical/index.md');
+  return [msData, btechData].filter(Boolean);
 };
 
 /**
@@ -32,7 +41,11 @@ export const loadEducationData = async () => {
  * @returns {Promise<Array>} Experience data array
  */
 export const loadExperienceData = async () => {
-  return portfolioData.experience;
+  const lassData = await loadMarkdownFile('/data/experience/lass/index.md');
+  const honeywellEngineerData = await loadMarkdownFile('/data/experience/software-engineer-honeywell/index.md');
+  const honeywellInternData = await loadMarkdownFile('/data/experience/software-intern-honeywell/index.md');
+  const swarmData = await loadMarkdownFile('/data/experience/swarm-robotics/index.md');
+  return [lassData, honeywellEngineerData, honeywellInternData, swarmData].filter(Boolean);
 };
 
 /**
@@ -40,7 +53,10 @@ export const loadExperienceData = async () => {
  * @returns {Promise<Array>} Projects data array
  */
 export const loadProjectsData = async () => {
-  return portfolioData.projects;
+  const ecommerceData = await loadMarkdownFile('/data/projects/ecommerce-platform/index.md');
+  const taskManagerData = await loadMarkdownFile('/data/projects/task-manager/index.md');
+  const weatherData = await loadMarkdownFile('/data/projects/weather-dashboard/index.md');
+  return [ecommerceData, taskManagerData, weatherData].filter(Boolean);
 };
 
 /**
@@ -48,7 +64,16 @@ export const loadProjectsData = async () => {
  * @returns {Promise<Object>} Blogs data
  */
 export const loadBlogsData = async () => {
-  return portfolioData.blogs;
+  const buildingScalableReactData = await loadMarkdownFile('/data/blogs/building-scalable-react/index.md');
+  return {
+    title: "Blog",
+    subtitle: "Thoughts and Insights",
+    posts: [buildingScalableReactData].filter(Boolean),
+    ctaText: "Want to Read More?",
+    ctaDescription: "I regularly write about software development, technology trends, and my learning journey.",
+    ctaButtonText: "View All Posts",
+    ctaButtonLink: "#"
+  };
 };
 
 /**
@@ -56,6 +81,6 @@ export const loadBlogsData = async () => {
  * @returns {Promise<Object>} Contact data
  */
 export const loadContactData = async () => {
-  return portfolioData.contact;
+  return await loadMarkdownFile('/data/contact/index.md');
 };
 
