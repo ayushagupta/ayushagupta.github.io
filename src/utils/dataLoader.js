@@ -15,16 +15,12 @@ marked.setOptions({
  */
 export const loadMarkdownFile = async (filePath) => {
   try {
-    console.log('Attempting to load:', filePath);
     const response = await fetch(filePath);
-    console.log('Response status:', response.status, response.statusText);
     if (!response.ok) {
       throw new Error(`Failed to load ${filePath}: ${response.statusText}`);
     }
     const markdown = await response.text();
-    console.log('Loaded markdown content:', markdown.substring(0, 100) + '...');
     const parsed = parseMarkdown(markdown);
-    console.log('Parsed data:', parsed);
     return parsed;
   } catch (error) {
     console.error(`Error loading markdown file ${filePath}:`, error);
