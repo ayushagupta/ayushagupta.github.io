@@ -388,6 +388,24 @@
   background-color: rgba(20, 184, 166, 0.15);
 }
 
+.mobile-resume-link {
+  background: linear-gradient(135deg, #14b8a6, #0d9488) !important;
+  color: white !important;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(20, 184, 166, 0.25);
+}
+
+.mobile-resume-link:hover {
+  background: linear-gradient(135deg, #0d9488, #1d4ed8) !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(20, 184, 166, 0.4);
+}
+
 .mobile-header-actions {
   position: absolute;
   bottom: 2rem;

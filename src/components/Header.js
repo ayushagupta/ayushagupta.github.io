@@ -167,17 +167,19 @@ const Header = () => {
               <li><button onClick={() => handleNavigation('projects')} className={`mobile-nav-link ${activeSection==='projects' ? 'active' : ''}`}>Projects</button></li>
               <li><button onClick={() => handleNavigation('blogs')} className={`mobile-nav-link ${activeSection==='blogs' ? 'active' : ''}`}>Blogs</button></li>
               <li><button onClick={() => handleNavigation('contact')} className={`mobile-nav-link ${activeSection==='contact' ? 'active' : ''}`}>Contact</button></li>
+              <li>
+                <a 
+                  href="https://drive.google.com/file/d/your-resume-file-id/view" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="mobile-nav-link mobile-resume-link"
+                >
+                  <span>📄</span>
+                  Resume
+                </a>
+              </li>
             </ul>
             <div className="mobile-header-actions">
-              <a 
-                href="https://drive.google.com/file/d/your-resume-file-id/view" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="mobile-resume-btn"
-              >
-                <span>📄</span>
-                Resume
-              </a>
               <button onClick={toggleTheme} className="mobile-theme-toggle" aria-label="Toggle theme">
                 <div className="theme-slider">
                   <div className={`theme-slider-thumb ${isDarkMode ? 'dark' : 'light'}`}>
