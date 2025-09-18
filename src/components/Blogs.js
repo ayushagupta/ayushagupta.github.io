@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './Blogs.css';
 import { loadBlogsData } from '../utils/portfolioData.js';
 
@@ -45,9 +45,9 @@ const Blogs = () => {
                   </div>
                   <h3 className="blog-title">{blog.title}</h3>
                   <p className="blog-excerpt">{blog.excerpt}</p>
-                  <a href={`/blog/${blog.slug}`} className="blog-link">
+                  <Link to={`/blog/${blog.slug}`} className="blog-link">
                     Read More →
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))
