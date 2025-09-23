@@ -285,15 +285,32 @@
   cursor: pointer;
   padding: 0;
   z-index: 1001;
+  position: relative;
 }
 
 .mobile-menu-btn span {
+  position: absolute;
+  left: 0;
+  top: 50%;
   width: 100%;
   height: 3px;
   background: #1e293b;
   border-radius: 2px;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
   transform-origin: center;
+  transform: translateY(-50%);
+}
+
+.mobile-menu-btn span:nth-child(1) {
+  transform: translateY(calc(-50% - 8px));
+}
+
+.mobile-menu-btn span:nth-child(2) {
+  transform: translateY(-50%);
+}
+
+.mobile-menu-btn span:nth-child(3) {
+  transform: translateY(calc(-50% + 8px));
 }
 
 [data-theme="dark"] .mobile-menu-btn span {
@@ -301,7 +318,7 @@
 }
 
 .mobile-menu-btn.active span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .mobile-menu-btn.active span:nth-child(2) {
@@ -309,7 +326,7 @@
 }
 
 .mobile-menu-btn.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+  transform: translateY(-50%) rotate(-45deg);
 }
 
 /* Mobile Menu */
@@ -391,6 +408,7 @@
 .mobile-resume-link {
   background: linear-gradient(135deg, #14b8a6, #0d9488) !important;
   color: white !important;
+  text-decoration: none;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -402,6 +420,7 @@
 .mobile-resume-link:hover {
   background: linear-gradient(135deg, #0d9488, #1d4ed8) !important;
   color: white !important;
+  text-decoration: none;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(20, 184, 166, 0.4);
 }
