@@ -3,6 +3,9 @@
   top: 0;
   left: 0;
   right: 0;
+  /* fluid spacing controls */
+  --nav-item-gap: clamp(0.25rem, calc(0.4rem + 0.9vw), 2rem);
+  --nav-hpad: clamp(0.35rem, calc(0.35rem + 0.7vw), 1rem);
   /* Fully opaque background for maximum legibility */
   background-color: #ffffff;
   -webkit-backdrop-filter: saturate(1.2) blur(20px);
@@ -43,11 +46,11 @@
   align-items: center;
   padding: 1rem 0;
   width: 100%;
-  gap: 6rem;
+  gap: clamp(1.25rem, 10vw, 8rem);
 }
 
 .logo-text {
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 700;
   color: #0f172a;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -77,7 +80,8 @@
   display: flex;
   align-items: center;
   gap: 2rem;
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: 0;
   justify-content: flex-end;
 }
 
@@ -85,28 +89,41 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex: 0 0 auto;
 }
+
+.logo { flex: 0 0 auto; }
 
 .nav-list {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: var(--nav-item-gap) !important;
+  flex-wrap: nowrap;
   margin: 0;
   padding: 0;
 }
+
+/* Ensure margins don't override gap-driven spacing */
+.nav-list li + li { margin-left: 0 !important; }
 
 .nav-link {
   background: none;
   border: none;
   color: #1e293b;
-  font-size: 1rem;
+  font-size: clamp(0.86rem, 1.2vw, 1rem);
   font-weight: 600;
   cursor: pointer;
   transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  padding: 0.5rem 1rem;
+  padding: clamp(0.28rem, 0.9vw, 0.55rem) var(--nav-hpad);
   border-radius: 8px;
   position: relative;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Fallback for browsers without flex gap support */
+@supports not (gap: 1rem) {
+  .nav-list { gap: 0 !important; }
+  .nav-list li + li { margin-left: var(--nav-item-gap) !important; }
 }
 
 .nav-link:hover {
@@ -160,13 +177,13 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.6rem 1.2rem;
+  padding: clamp(0.4rem, 1.7vw, 0.6rem) clamp(0.8rem, 3.5vw, 1.2rem);
   background: linear-gradient(135deg, #14b8a6, #0d9488);
   color: white;
   text-decoration: none;
   border-radius: 8px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: clamp(0.84rem, 1.5vw, 0.9rem);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
   border: none;
   cursor: pointer;
@@ -475,8 +492,10 @@
   align-self: center;
 }
 
+/* fluid sizes handle gradual changes; keep only the hamburger switch */
+
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   .nav {
     display: none;
   }
@@ -487,10 +506,6 @@
   
   .mobile-menu {
     display: block;
-  }
-  
-  .logo-text {
-    font-size: 1.3rem;
   }
   
   .header-content {
