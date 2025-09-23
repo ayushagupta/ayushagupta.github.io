@@ -63,6 +63,20 @@
   <!-- <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /> -->
   <link rel="manifest" href="/manifest.json" />
 
+  <script>
+    // Restore clean URLs when arriving via 404.html fallback on GitHub Pages
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var p = params.get('p');
+      if (p) {
+        var newUrl = p;
+        // Strip leading /index.html if present
+        newUrl = newUrl.replace(/^\/index\.html/, '/');
+        history.replaceState(null, '', newUrl);
+      }
+    })();
+  </script>
+
   <!-- Preconnect to external domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

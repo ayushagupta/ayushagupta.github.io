@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; url=/" />
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0; url=/index.html" />
     <script>
-      // Redirect 404s to the HashRouter path so deep links work on GitHub Pages
+      // GitHub Pages SPA fallback: preserve path and send to index.html
       (function() {
-        var l = window.location;
-        var path = l.pathname + (l.search || '') + (l.hash || '');
-        if (l.pathname !== '/' && !l.pathname.startsWith('/index.html')) {
-          var hashUrl = '/#' + path.replace(/^\//, '');
-          window.location.replace(hashUrl);
-        }
+        var redirect = '/index.html?p=' + encodeURIComponent(location.pathname + location.search + location.hash);
+        location.replace(redirect);
       })();
     </script>
   </head>
