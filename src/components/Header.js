@@ -131,7 +131,7 @@ const Header = () => {
             </ul>
             <div className="header-actions">
               <a 
-                href="https://drive.google.com/file/d/your-resume-file-id/view" 
+                href="https://drive.google.com/file/d/12ZTvMB01KeVrUos46G3oVuqFKwasUXMu/view" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="resume-btn"
