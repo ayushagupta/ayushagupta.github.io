@@ -132,7 +132,7 @@ const Header = () => {
             <div className="header-actions">
               <a 
                 href="https://drive.google.com/file/d/12ZTvMB01KeVrUos46G3oVuqFKwasUXMu/view" 
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer" 
                 className="resume-btn"
               >
@@ -171,7 +171,7 @@ const Header = () => {
               <li><button onClick={() => handleNavigation('contact')} className={`mobile-nav-link ${activeSection==='contact' ? 'active' : ''}`}>Contact</button></li>
               <li>
                 <a 
-                  href="https://drive.google.com/file/d/your-resume-file-id/view" 
+                  href="https://drive.google.com/file/d/12ZTvMB01KeVrUos46G3oVuqFKwasUXMu/view" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="mobile-nav-link mobile-resume-link"
