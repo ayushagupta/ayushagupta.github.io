@@ -11,6 +11,15 @@ const Header = () => {
   const location = useLocation();
   const [activeSection, setActiveSection] = useState('intro');
 
+  const sectionTitles = {
+    intro: 'Ayush Gupta - Software Engineer & Graduate Researcher',
+    education: 'Ayush Gupta — Education',
+    experience: 'Ayush Gupta — Experience',
+    projects: 'Ayush Gupta — Projects',
+    blogs: 'Ayush Gupta — Blog Posts',
+    contact: 'Ayush Gupta — Contact',
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -83,6 +92,14 @@ const Header = () => {
       window.removeEventListener('resize', updateActive);
     };
   }, []);
+
+  // Update document title when active section changes
+  useEffect(() => {
+    const nextTitle = sectionTitles[activeSection] || 'Ayush Gupta';
+    if (document.title !== nextTitle) {
+      document.title = nextTitle;
+    }
+  }, [activeSection]);
 
   const handleNavigation = (sectionId) => {
     // Close mobile menu when navigating
