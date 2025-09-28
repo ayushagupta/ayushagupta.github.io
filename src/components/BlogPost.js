@@ -102,12 +102,12 @@ const BlogPost = () => {
         <title>{blogPost.title} - Ayush Gupta | Software Engineer & Graduate Researcher</title>
         <meta name="description" content={blogPost.excerpt} />
         <meta name="keywords" content={`${blogPost.category}, software engineering, ${blogPost.title.toLowerCase()}, tutorial, blog`} />
-        <link rel="canonical" href={`https://ayushagupta.github.io/blog/${slug}`} />
+        <link rel="canonical" href={`https://ayushagupta.github.io/#/blog/${slug}`} />
         
         {/* Open Graph */}
         <meta property="og:title" content={`${blogPost.title} - Ayush Gupta`} />
         <meta property="og:description" content={blogPost.excerpt} />
-        <meta property="og:url" content={`https://ayushagupta.github.io/blog/${slug}`} />
+        <meta property="og:url" content={`https://ayushagupta.github.io/#/blog/${slug}`} />
         <meta property="og:type" content="article" />
         <meta property="og:article:author" content="Ayush Gupta" />
         <meta property="og:article:published_time" content={blogPost.date} />
@@ -116,7 +116,7 @@ const BlogPost = () => {
         {/* Twitter */}
         <meta name="twitter:title" content={`${blogPost.title} - Ayush Gupta`} />
         <meta name="twitter:description" content={blogPost.excerpt} />
-        <meta name="twitter:url" content={`https://ayushagupta.github.io/blog/${slug}`} />
+        <meta name="twitter:url" content={`https://ayushagupta.github.io/#/blog/${slug}`} />
         
         {/* Article structured data */}
         <script type="application/ld+json">
@@ -136,10 +136,10 @@ const BlogPost = () => {
             },
             "datePublished": blogPost.date,
             "dateModified": blogPost.date,
-            "url": `https://ayushagupta.github.io/blog/${slug}`,
+            "url": `https://ayushagupta.github.io/#/blog/${slug}`,
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": `https://ayushagupta.github.io/blog/${slug}`
+              "@id": `https://ayushagupta.github.io/#/blog/${slug}`
             }
           })}
         </script>

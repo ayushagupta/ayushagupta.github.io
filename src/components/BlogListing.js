@@ -65,18 +65,18 @@ const BlogListing = () => {
         <title>Blog Posts - Ayush Gupta | Software Engineer & Graduate Researcher</title>
         <meta name="description" content="Explore technical blog posts by Ayush Gupta covering software engineering, distributed systems, machine learning, and web development topics." />
         <meta name="keywords" content="blog, software engineering, distributed systems, machine learning, web development, React, Python, JavaScript, tutorials" />
-        <link rel="canonical" href="https://ayushagupta.github.io/blogs" />
+        <link rel="canonical" href="https://ayushagupta.github.io/#/blogs" />
         
         {/* Open Graph */}
         <meta property="og:title" content="Blog Posts - Ayush Gupta | Software Engineer & Graduate Researcher" />
         <meta property="og:description" content="Explore technical blog posts by Ayush Gupta covering software engineering, distributed systems, machine learning, and web development topics." />
-        <meta property="og:url" content="https://ayushagupta.github.io/blogs" />
+        <meta property="og:url" content="https://ayushagupta.github.io/#/blogs" />
         <meta property="og:type" content="website" />
         
         {/* Twitter */}
         <meta name="twitter:title" content="Blog Posts - Ayush Gupta | Software Engineer & Graduate Researcher" />
         <meta name="twitter:description" content="Explore technical blog posts by Ayush Gupta covering software engineering, distributed systems, machine learning, and web development topics." />
-        <meta name="twitter:url" content="https://ayushagupta.github.io/blogs" />
+        <meta name="twitter:url" content="https://ayushagupta.github.io/#/blogs" />
       </Helmet>
       
       <div className="blog-listing-header">
