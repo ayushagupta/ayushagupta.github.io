@@ -80,7 +80,7 @@ const Contact = () => {
       icon: "📍",
       title: "Location",
       value: contactData.location,
-      link: "#"
+      link: "https://www.google.com/maps/search/Amherst,+MA"
     }
   ];
 
@@ -96,7 +96,13 @@ const Contact = () => {
             </p>
             <div className="contact-methods">
               {contactInfo && contactInfo.map((info, index) => (
-                <a key={index} href={info.link} className="contact-method">
+                <a 
+                  key={index} 
+                  href={info.link} 
+                  className="contact-method"
+                  target={info.title === "Location" ? "_blank" : undefined}
+                  rel={info.title === "Location" ? "noopener noreferrer" : undefined}
+                >
                   <div className="contact-icon">{info.icon}</div>
                   <div className="contact-details">
                     <h4>{info.title}</h4>
